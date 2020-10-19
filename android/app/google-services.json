@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "63740025284",
+    "firebase_url": "https://food-takout.firebaseio.com",
+    "project_id": "food-takout",
+    "storage_bucket": "food-takout.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63740025284:android:c00f29b284902be2d36c91",
+        "android_client_info": {
+          "package_name": "com.example.takeout_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63740025284-hpa6r0pqglf0hiba0hc549afc50b43ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAECxLlJoLKJWB_0nthVa5if9ng7U4zV2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63740025284-hpa6r0pqglf0hiba0hc549afc50b43ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
