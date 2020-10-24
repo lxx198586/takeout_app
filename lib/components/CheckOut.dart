@@ -38,7 +38,7 @@ class MaskedTextInputFormatter extends TextInputFormatter {
 
 class CheckOut extends StatefulWidget {
   final double sum;
-  final List<int> orderCounts;
+  final List<String> orderCounts;
   final List<String> orderNames;
 
   CheckOut({this.sum, this.orderNames, this.orderCounts});
@@ -55,6 +55,7 @@ class _CheckOutState extends State<CheckOut> {
   String cvv = '';
   String address = '';
   String phoneNumber = '';
+  String memo = '';
 
   @override
   Widget build(BuildContext context) {
@@ -206,6 +207,24 @@ class _CheckOutState extends State<CheckOut> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
+                horizontal: 50,
+                vertical: 10,
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Memo',
+                ),
+                style: TextStyle(fontWeight: FontWeight.bold),
+                onChanged: (text) {
+                  setState(() {
+                    memo = text;
+                  });
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 80,
                 vertical: 30,
               ),
@@ -272,7 +291,9 @@ class _CheckOutState extends State<CheckOut> {
 
   void createRecord() async {
     var docName = DateTime.now();
-    return await databaseReference.collection("orders").doc('${docName}').set({
+
+
+    return await databaseReference.collection('${docName.year}-${docName.month}-${docName.day}').doc('${docName}').set({
       'name': username,
       'credit card number': cardNumber,
       'expiry date': expiryDate,
@@ -283,6 +304,8 @@ class _CheckOutState extends State<CheckOut> {
       'timestamp': DateTime.now(),
       'order names': '${widget.orderNames}',
       'order counts': '${widget.orderCounts}',
+      'memo': memo,
+      'backgroundColor': 'red',
     });
   }
 }

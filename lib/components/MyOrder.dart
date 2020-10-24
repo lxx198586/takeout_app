@@ -5,7 +5,7 @@ import 'menu_list.dart';
 class MyOrder extends StatefulWidget {
   double sum;
   List<String> orderNames;
-  List<int> orderCounts;
+  List<String> orderCounts;
 
   @override
   _MyOrderState createState() => _MyOrderState();
@@ -17,17 +17,19 @@ class _MyOrderState extends State<MyOrder> {
     double sum = 0.00;
     String sumTitle = '';
     List<String> orderNames = [];
-    List<int> orderCounts = [];
+    List<String> orderCounts = [];
     List<Menu> _cartList_nonZero = menus.where((i) => (i.count != 0)).toList();
     setState(() {
       _cartList_nonZero
           .forEach((cartItem) => sum += cartItem.price * cartItem.count);
       sumTitle = sum.toStringAsFixed(2);
       _cartList_nonZero.forEach((element) {
-        orderNames.add(element.name);
+        var _temp = '"'+element.name+'"';
+        orderNames.add(_temp);
       });
       _cartList_nonZero.forEach((element) {
-        orderCounts.add(element.count);
+        var _temp = '"'+element.count.toString()+'"';
+        orderCounts.add(_temp);
       });
       // print(orderNames);
       // print(orderCounts);
